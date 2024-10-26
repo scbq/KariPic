@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Fotos</h2>
+    
+  </div>
+  <div class="row">
+    <% @photos.each do |photo| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="height: 100%; max-height: 400px;">
+          <!-- Imagen ajustada para que quepa dentro de la card -->
+          <div class="card-img-top" style="height: 200px; overflow: hidden;">
+            <% if photo.image.attached? %>
+              <%= image_tag photo.image, class: "w-100 h-100", style: "object-fit: cover;" %>
+            <% else %>
+              <%= image_tag "default_image.png", class: "w-100 h-100", style: "object-fit: cover;" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= photo.title %></h5>
+            <p class="card-text"><%= truncate(photo.description, length: 50) %></p>
+            <%= link_to "Ver más", photo_path(photo), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

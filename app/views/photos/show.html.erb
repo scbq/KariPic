@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow p-4" style="border-radius: 15px;">
+        <div class="card-body text-center">
+          <h3 class="card-title mb-4"><%= @photo.title %></h3>
+          
+          <!-- Imagen responsiva de la foto -->
+          <div class="mb-4">
+            <%= image_tag @photo.image, class: "img-fluid rounded", style: "max-height: 500px;" if @photo.image.attached? %>
+          </div>
+          
+          <!-- Descripción de la foto -->
+          <p class="card-text"><%= @photo.description %></p>
+
+          <!-- Botones de acciones -->
+          <div class="d-flex justify-content-between mt-4">
+            <%= link_to "Volver a todas las fotos", photos_path, class: "btn btn-secondary" %>
+            <% if current_user.karina? %>
+              <%= link_to "Editar", edit_photo_path(@photo), class: "btn btn-primary" %>
+<<<<<<< HEAD
+              <%= button_to "Delete Photo", photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+=======
+              <%= link_to "Eliminar", @photo, method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar esta foto?" }, class: "btn btn-danger" %>
+>>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Comentarios -->
+      <div class="card mt-5 shadow p-4" style="border-radius: 15px;">
+        <h4 class="mb-4">Comentarios</h4>
+
+        <div class="list-group mb-4">
+          <% @photo.comments.each do |comment| %>
+            <div class="list-group-item">
+              <div class="d-flex align-items-center mb-2">
+                <!-- Miniatura de la foto de perfil -->
+                <%= image_tag comment.user.profile_photo, class: "rounded-circle me-2", size: "50x50" if comment.user.profile_photo.attached? %>
+                <strong><%= comment.user.name %></strong>
+              </div>
+              <p><%= comment.content %></p>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Formulario para agregar un nuevo comentario -->
+        <div class="mt-4">
+          <%= form_with(model: [ @photo, Comment.new ], local: true) do |f| %>
+            <div class="mb-3">
+              <%= f.label :content, "Añadir un comentario", class: "form-label" %>
+              <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Escribe tu comentario aquí..." %>
+            </div>
+
+            <%= f.submit "Comentar", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

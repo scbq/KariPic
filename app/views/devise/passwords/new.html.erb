@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center justify-content-center vh-100" style="background-image: url('<%= asset_path('background_image.jpg') %>'); background-size: cover;">
+  <div class="card p-4 shadow" style="width: 400px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px;">
+    <h2 class="text-center mb-4">Recuperar Contraseña</h2>
+
+    <%= form_with(model: resource, as: resource_name, url: password_path(resource_name), html: { class: "form" }) do |f| %>
+      <div class="mb-3">
+        <%= f.label :email, "Correo Electrónico", class: "form-label" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Enviar Instrucciones", class: "btn btn-primary w-100" %>
+    <% end %>
+
+    <div class="text-center mt-3">
+      <%= link_to "Iniciar Sesión", new_session_path(resource_name), class: "text-muted" %>
+    </div>
+  </div>
+</div>

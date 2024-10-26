@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4 shadow" style="border-radius: 15px;">
+        <h3 class="text-center mb-4">Subir Nueva Foto</h3>
+
+        <%= form_with(model: @photo, local: true, html: { class: "form" }) do |form| %>
+          <div class="mb-3">
+            <%= form.label :title, "Título", class: "form-label" %>
+            <%= form.text_field :title, class: "form-control", placeholder: "Ingresa el título de la foto" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :description, "Descripción", class: "form-label" %>
+            <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Describe la foto..." %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :image, "Subir Imagen", class: "form-label" %>
+            <%= form.file_field :image, class: "form-control", accept: "image/*" %>
+          </div>
+
+          <div class="d-grid gap-2 mt-4">
+            <%= form.submit "Guardar Foto", class: "btn btn-primary" %>
+            <%= link_to "Cancelar", photos_path, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

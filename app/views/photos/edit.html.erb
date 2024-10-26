@@ -1,0 +1,41 @@
+<<<<<<< HEAD
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h3>Editar Foto</h3>
+    </div>
+    <div class="card-body">
+      <%= form_for @photo, html: { multipart: true } do |f| %>
+        <div class="mb-3">
+          <%= f.label :title, "Título" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :description, "Descripción" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :image, "Imagen" %>
+          <%= f.file_field :image, class: "form-control" %>
+        </div>
+        <div class="d-flex justify-content-between">
+          <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
+          <%= link_to "Cancelar", photo_path(@photo), class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+=======
+<% content_for :title, "Editing photo" %>
+
+<h1>Editing photo</h1>
+
+<%= render "form", photo: @photo %>
+
+<br>
+
+<div>
+  <%= link_to "Show this photo", @photo %> |
+  <%= link_to "Back to photos", photos_path %>
+>>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
+</div>
