@@ -345,6 +345,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.1)
   brakeman
+  bundler (~> 2.4.22)
   cancancan
   capybara
   debug
@@ -367,4 +368,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.5.20
+   2.4.22

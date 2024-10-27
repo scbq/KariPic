@@ -67,5 +67,6 @@ gem 'faker'
 gem 'bootstrap', '~> 5.1'
 gem 'sassc-rails'
 
+gem 'bundler', '~> 2.4.22'
 
 
