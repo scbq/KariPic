@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   # Configura Devise para autenticación de usuarios
   devise_for :users
 
-<<<<<<< HEAD
-  get "manifest.json", to: "application#manifest"
-
-=======
->>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
   devise_scope :user do
     get 'sign_out', to: 'devise/sessions#destroy', as: :get_sign_out
   end

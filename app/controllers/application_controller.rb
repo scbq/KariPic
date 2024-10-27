@@ -9,11 +9,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profile_photo])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile_photo])
   end
-<<<<<<< HEAD
 
   def manifest
     render json: {}
   end
-=======
->>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
 end

@@ -18,11 +18,7 @@
             <%= link_to "Volver a todas las fotos", photos_path, class: "btn btn-secondary" %>
             <% if current_user.karina? %>
               <%= link_to "Editar", edit_photo_path(@photo), class: "btn btn-primary" %>
-<<<<<<< HEAD
               <%= button_to "Delete Photo", photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-=======
-              <%= link_to "Eliminar", @photo, method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar esta foto?" }, class: "btn btn-danger" %>
->>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
             <% end %>
           </div>
         </div>

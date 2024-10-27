@@ -24,14 +24,11 @@ class PhotosController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def destroy
     @photo.destroy
     redirect_to photos_path, notice: 'La foto fue eliminada con éxito.'
   end
 
-=======
->>>>>>> 4c1c22b6369f2a38e6d7c2e1ab0c7b58566c1cc9
   private
 
   def photo_params
