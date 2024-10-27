@@ -2,12 +2,18 @@
 # exit on error
 set -o errexit
 
+# Instalar dependencias de gemas del proyecto
 bundle install
-# bundle exec rails assets:precompile
-# bundle exec rails assets:clean
 
-# If you're using a Free instance type, you need to
-# perform database migrations in the build command.
-# Uncomment the following line:
+# Utilizar Node.js como entorno de ejecución JavaScript para ExecJS
+# exportando NODE_PATH para que lo detecte correctamente
+export NODE_PATH=$(npm root -g)
 
-# bundle exec rails db:migrate
+# Precompilar activos
+bundle exec rails assets:precompile
+
+# Limpiar activos antiguos
+bundle exec rails assets:clean
+
+# Ejecutar migraciones
+bundle exec rails db:migrate
