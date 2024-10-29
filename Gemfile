@@ -69,4 +69,5 @@ gem 'sassc-rails'
 
 gem 'bundler', '~> 2.4.22'
 
+gem 'debug'
 
